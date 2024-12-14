@@ -10,7 +10,7 @@ import styled from '@emotion/styled'
 import MusicCard from '../components/MusicCard'
 
 const Wrapper = styled.section`
-  border: 1px solid red;
+  /* border: 1px solid red; */
   overflow: scroll !important;
   & .category {
     margin-bottom: 10px;
