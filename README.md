@@ -1,154 +1,149 @@
-# SpottyTunes: A Music Streaming Web Application
+Here’s the updated README file with information about the three APIs (Last.fm API, Spotify Web API, and MockAPI) used in your project:
 
-## Project Overview
+SpottyTunes: A Music Streaming Web Application
 
-SpottyTunes is a modern music streaming web application that allows users to discover new music releases, search for tracks, and create personalized playlists. The app integrates Spotify's Web API to fetch real-time data and uses MockAPI to manage the user's favorite tracks with CRUD functionality.
+Project Overview
 
-### Features
+SpottyTunes is a modern music streaming web application that allows users to discover new music releases, search for tracks, and create personalized playlists. The app integrates data from multiple APIs to provide a seamless user experience.
+	•	Last.fm API is used to fetch track details and music data.
+	•	Spotify Web API is used for fetching album art and additional metadata.
+	•	MockAPI is used to manage user-specific data such as playlists and favorite tracks, with CRUD functionality.
 
-- **Home Page:** Displays the latest music releases fetched from Spotify's API.
-- **Search Page:** Enables users to search for music and filter results based on genre, artist, or popularity.
-- **Playlist Page:** Allows users to save, view, edit, and delete their favorite tracks using MockAPI.
-- **Seamless Integration:** Combines real-time data from Spotify with user-specific data stored in MockAPI.
+Features
+	•	Home Page: Displays the latest music releases fetched from the Spotify Web API.
+	•	Search Page: Enables users to search for music tracks, with track details fetched from the Last.fm API and album art provided by the Spotify Web API.
+	•	Playlist Page: Allows users to save, view, edit, and delete their favorite tracks using MockAPI.
+	•	Seamless Integration: Combines data from Last.fm and Spotify APIs with user-specific data stored in MockAPI.
 
-### Technologies Used
+Technologies Used
+	•	Frontend Framework: React
+	•	APIs:
+	•	Last.fm API: For fetching music data such as track titles, artists, and metadata.
+	•	Spotify Web API: For fetching album art and other visual data.
+	•	MockAPI: For managing user-specific data (e.g., playlists and favorite tracks) with full CRUD operations.
+	•	Linting & Formatting: ESLint and Prettier
 
-- React (Frontend)
-- Spotify Web API (External Data)
-- MockAPI (User Data Management)
-- ESLint and Prettier (Code Linting and Formatting)
+Installation and Setup
 
-## Installation and Setup
+Prerequisites
+	•	Node.js (>=16.x.x)
+	•	npm (>=8.x.x)
+	•	Spotify Developer Account (for API keys)
+	•	Last.fm Developer Account (for API keys)
+	•	MockAPI account (for managing mock datasets)
 
-### Prerequisites
+Steps
+	1.	Clone the repository:
 
-- Node.js (>=16.x.x)
-- npm (>=8.x.x)
-- Spotify Developer Account (for API keys)
-- MockAPI account (for managing mock datasets)
+git clone https://github.com/your-repository-name.git
+cd your-repository-name
 
-### Steps
 
-1. Clone the repository:
+	2.	Install dependencies:
 
-   ```bash
-   git clone https://github.com/your-repository-name.git
-   cd your-repository-name
-   ```
+npm install
 
-2. Install dependencies:
 
-   ```bash
-   npm install
-   ```
+	3.	Create a .env file in the root directory and add your API credentials:
 
-3. Create a `.env` file in the root directory and add your Spotify API credentials:
+REACT_APP_SPOTIFY_CLIENT_ID=your_spotify_client_id
+REACT_APP_SPOTIFY_CLIENT_SECRET=your_spotify_client_secret
+REACT_APP_SPOTIFY_REDIRECT_URI=http://localhost:3000
+REACT_APP_LASTFM_API_KEY=your_lastfm_api_key
 
-   ```env
-   REACT_APP_SPOTIFY_CLIENT_ID=your_client_id
-   REACT_APP_SPOTIFY_CLIENT_SECRET=your_client_secret
-   REACT_APP_SPOTIFY_REDIRECT_URI=http://localhost:3000
-   ```
 
-4. Start the development server:
+	4.	Start the development server:
 
-   ```bash
-   npm start
-   ```
+npm start
 
-5. Access the application at [http://localhost:3000](http://localhost:3000).
 
-## Setting Up ESLint and Prettier
+	5.	Access the application at http://localhost:3000.
 
-### Install Dependencies
+Setting Up ESLint and Prettier
+
+Install Dependencies
 
 To set up ESLint and Prettier in the project, run the following commands:
 
-```bash
 npm install --save-dev eslint prettier eslint-plugin-react eslint-config-prettier eslint-plugin-prettier
-```
 
-### Configure ESLint
+Configure ESLint
+	1.	Create an .eslintrc.json file in the root directory:
 
-1. Create an `.eslintrc.json` file in the root directory:
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "react/react-in-jsx-scope": "off"
+  }
+}
 
-   ```json
-   {
-     "env": {
-       "browser": true,
-       "es2021": true
-     },
-     "extends": [
-       "eslint:recommended",
-       "plugin:react/recommended",
-       "plugin:prettier/recommended"
-     ],
-     "parserOptions": {
-       "ecmaFeatures": {
-         "jsx": true
-       },
-       "ecmaVersion": 12,
-       "sourceType": "module"
-     },
-     "plugins": ["react", "prettier"],
-     "rules": {
-       "prettier/prettier": "error",
-       "react/react-in-jsx-scope": "off"
-     }
-   }
-   ```
 
-2. Add a `lint` script to your `package.json`:
-   ```json
-   "scripts": {
-     "lint": "eslint ."
-   }
-   ```
+	2.	Add a lint script to your package.json:
 
-### Configure Prettier
+"scripts": {
+  "lint": "eslint ."
+}
 
-1. Create a `.prettierrc` file in the root directory:
 
-   ```json
-   {
-     "semi": true,
-     "singleQuote": true,
-     "printWidth": 80
-   }
-   ```
 
-2. Add a `format` script to your `package.json`:
-   ```json
-   "scripts": {
-     "format": "prettier --write ."
-   }
-   ```
+Configure Prettier
+	1.	Create a .prettierrc file in the root directory:
 
-### Running ESLint and Prettier
+{
+  "semi": true,
+  "singleQuote": true,
+  "printWidth": 80
+}
 
-- To check for linting errors:
-  ```bash
-  npm run lint
-  ```
-- To auto-format the code:
-  ```bash
-  npm run format
-  ```
 
-## Contributing
+	2.	Add a format script to your package.json:
 
-1. Fork the repository.
-2. Create a new feature branch (`git checkout -b feature/YourFeature`).
-3. Commit your changes (`git commit -m 'Add YourFeature'`).
-4. Push to the branch (`git push origin feature/YourFeature`).
-5. Open a pull request.
+"scripts": {
+  "format": "prettier --write ."
+}
 
-## License
+Running ESLint and Prettier
+	•	To check for linting errors:
+
+npm run lint
+
+
+	•	To auto-format the code:
+
+npm run format
+
+Contributing
+	1.	Fork the repository.
+	2.	Create a new feature branch (git checkout -b feature/YourFeature).
+	3.	Commit your changes (git commit -m 'Add YourFeature').
+	4.	Push to the branch (git push origin feature/YourFeature).
+	5.	Open a pull request.
+
+License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-## Acknowledgements
+Acknowledgements
+	•	Last.fm API
+	•	Spotify Web API
+	•	MockAPI
+	•	ESLint and Prettier Guide
 
-- [Spotify Web API](https://developer.spotify.com/documentation/web-api/)
-- [MockAPI](https://mockapi.io/)
-- [ESLint and Prettier Guide](https://medium.com/@sindhujad6/setting-up-eslint-and-prettier-in-a-node-js-project-f2577ee2126f)
+This updated README reflects the use of the Last.fm API for music data, Spotify API for images, and MockAPI for managing user data. Let me know if you need further edits!
