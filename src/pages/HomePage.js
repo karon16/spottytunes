@@ -16,6 +16,7 @@ import {
 } from '../components/utils/api_calls'
 import ArtistCard from '../components/ArtistCard'
 import { useNavigate } from 'react-router-dom'
+import {getSpotifyBearerToken} from '../components/utils/utils';
 
 const MainSection = styled.section`
   /* border: 1px solid red; */
@@ -94,6 +95,10 @@ const HomePage = () => {
       }
     }
 
+    const getToken = async ()=>{
+      await getSpotifyBearerToken()
+    }
+
     const fetchTracks = async () => {
       const result = await fetchTopTracks()
       if (result) {
@@ -115,6 +120,7 @@ const HomePage = () => {
       }
     }
 
+    getToken();
     fetchTopArtists()
     fetchTopChart()
     fetchTracks()
